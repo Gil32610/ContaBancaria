@@ -17,11 +17,11 @@ public abstract class Conta {
     }
 
     public int getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public int getAgencia() {
-        return agencia;
+        return this.agencia;
     }
 
     public double getSaldo() {
@@ -33,7 +33,7 @@ public abstract class Conta {
     }
 
     public boolean isStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(boolean status) {
@@ -47,6 +47,10 @@ public abstract class Conta {
     public void transferir(double valor, Conta favorecido) {
         this.saldo -= valor;
         favorecido.saldo += valor;
+    }
+
+    public Titular getTitular() {
+        return this.titular;
     }
 
 }

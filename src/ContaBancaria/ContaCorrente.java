@@ -1,6 +1,7 @@
 package ContaBancaria;
 
 import Person.Titular;
+import Exception.*;
 
 public class ContaCorrente extends Conta implements IsOpen {
     private double limite;
@@ -11,9 +12,15 @@ public class ContaCorrente extends Conta implements IsOpen {
         this.taxa = 10.00;
     }
 
-    public void sacar(double valor) {
-
+    @Override
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        if (valor > this.getSaldo()) {
+            throw new SaldoInsuficienteException();
+        } else {
+            this.setSaldo(-valor);
+        }
     }
+
     @Override
     public void depositar(double valor) {
         this.setSaldo(valor);
