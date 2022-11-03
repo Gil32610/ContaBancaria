@@ -1,5 +1,5 @@
 package ContaBancaria;
 
-interface IsOpen<T> {
-   public boolean IsOpen(T content);
+interface IsOpen {
+   public boolean IsOpen();
 }

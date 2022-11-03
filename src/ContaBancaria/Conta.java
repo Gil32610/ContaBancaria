@@ -2,7 +2,7 @@ package ContaBancaria;
 
 import Person.*;
 
-public abstract class Conta implements IsOpen {
+public abstract class Conta {
     private int numero;
     private int agencia;
     private double saldo;
@@ -25,7 +25,11 @@ public abstract class Conta implements IsOpen {
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
+    }
+
+    public void setSaldo(double valor) {
+        this.saldo += valor;
     }
 
     public boolean isStatus() {
@@ -45,12 +49,4 @@ public abstract class Conta implements IsOpen {
         favorecido.saldo += valor;
     }
 
-    public boolean isOpen(ContaCorrente conta) {
-        if (this.isStatus()) {
-            return true;
-        } else {
-            return false;
-        }
-
-    }
 }
