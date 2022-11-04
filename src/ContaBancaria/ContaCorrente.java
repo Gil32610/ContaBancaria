@@ -4,7 +4,6 @@ import Person.Titular;
 import Exception.*;
 
 public class ContaCorrente extends Conta implements IsOpen {
-    private double limite;
     private double taxa;
 
     public ContaCorrente(Titular titular, int numero, int agencia) {
@@ -26,9 +25,9 @@ public class ContaCorrente extends Conta implements IsOpen {
         this.setSaldo(valor);
     }
 
-    @Override
-    public void transferir(double valor, Conta favorecido) {
-        this.setSaldo(-(valor + taxa));
+    
+    public void transferir(double valor, ContaCorrente favorecido) {
+        this.sacar(-(valor + taxa));
         favorecido.depositar(valor);
 
     }
