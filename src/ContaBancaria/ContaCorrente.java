@@ -27,7 +27,7 @@ public class ContaCorrente extends Conta implements IsOpen {
 
     
     public void transferir(double valor, ContaCorrente favorecido) {
-        this.sacar(-(valor + taxa));
+        this.sacar((valor + taxa));
         favorecido.depositar(valor);
 
     }

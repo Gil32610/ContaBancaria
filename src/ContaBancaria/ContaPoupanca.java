@@ -1,5 +1,6 @@
 package ContaBancaria;
 
+import Exception.SaldoInsuficienteException;
 import Person.Titular;
 
 public class ContaPoupanca extends Conta implements IsOpen {
@@ -8,16 +9,23 @@ public class ContaPoupanca extends Conta implements IsOpen {
         super(titular, numero, cagencia);
     }
 
-    public void sacar(double valor) {
-
+    @Override
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        if (valor > this.getSaldo()) {
+            throw new SaldoInsuficienteException();
+        } else {
+            this.setSaldo(-valor);
+        }
     }
 
+    @Override
     public void depositar(double valor) {
-
+        this.setSaldo(valor);
     }
-    
-    public void transferir(double valor, ContaPoupanca favorecido){
-        
+
+    public void transferir(double valor, ContaPoupanca favorecido) {
+        this.sacar(valor);
+        favorecido.depositar(valor);
     }
 
     @Override
