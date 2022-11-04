@@ -28,6 +28,18 @@ public abstract class Conta {
         return this.saldo;
     }
 
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setAgencia(int agencia) {
+        this.agencia = agencia;
+    }
+
+    public void setTitular(Titular titular) {
+        this.titular = titular;
+    }
+
     public void setSaldo(double valor) {
         this.saldo += valor;
     }
